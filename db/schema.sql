@@ -15,6 +15,6 @@ CREATE TABLE users (
 INSERT INTO
   users(id, username, password, created_at)
 VALUES
-  ('test','test','test');
+  ('test','test','test', current_timestamp);
 
 COMMIT;
