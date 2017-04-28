@@ -25,12 +25,8 @@
   },
   "homepage": "https://github.com/PhilWinchester/Vote-Blockchain#readme",
   "dependencies": {
-    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
-    "cryptico": "^1.0.2",
-    "crypto": "0.0.3",
     "express": "^4.14.0",
-    "keypair": "^1.0.0",
     "morgan": "^1.7.0",
     "node-fetch": "^1.6.3",
     "path": "^0.12.7",
@@ -53,8 +49,6 @@
     "postcss-loader": "^1.1.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-router": "^3.0.0",
-    "react-router-redux": "^4.0.7",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1"
