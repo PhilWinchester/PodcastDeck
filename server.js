@@ -14,6 +14,6 @@ app.use(logger(isDev ? 'dev' : 'common'));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
 
-app.use('/', res.sendFile('./public/index.html'))
+app.use('/', require('./routes/index'))
 
 app.listen(PORT, () => console.log('server here! listening on', PORT));
