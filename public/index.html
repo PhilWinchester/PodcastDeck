@@ -3,8 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Test</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
-    <h1>hi</h1>
+    <div id="rss-search">
+      <input type="search" class="header-text" id="rss-input" value="enter a rss feed">
+      <input type="button" id="rss-lookup" class="header-button" value="Get RSS Feed">
+      <hr>
+      <input type="search" class="header-text" id="api-input" value="enter an api">
+      <input type="button" id="api-lookup" class="header-button" value="Get API Result">
+    </div>
+
+    <script src="./scripts/index.js" charset="utf-8"></script>
   </body>
 </html>
