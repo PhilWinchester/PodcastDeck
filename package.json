@@ -1,7 +1,7 @@
 {
-  "name": "blockchain-vote",
+  "name": "PodcastDeck",
   "version": "1.0.0",
-  "description": "Simple blockchain implementation",
+  "description": "Lightweight podcast listening platform",
   "engines": {
     "node": "7.1.0"
   },
@@ -21,9 +21,9 @@
   "author": "Phil Winchester",
   "license": "Help Yourself",
   "bugs": {
-    "url": "https://github.com/PhilWinchester/Vote-Blockchain/issues"
+    "url": "https://github.com/PhilWinchester/PodcastDeck/issues"
   },
-  "homepage": "https://github.com/PhilWinchester/Vote-Blockchain#readme",
+  "homepage": "https://github.com/PhilWinchester/PodcastDeck#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",

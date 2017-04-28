@@ -1,53 +1,6 @@
-/*
-#3972FF - Blue
-#2255FF - Darker Blue
-#4982FF - Light Blue
-#FAFAFA - White
-#222 - Black
-Blockchain
-#039BD3 - Blue
-#0FACE5 - Light Blue
-*/
 body {
   background-color: #FAFAFA;
   color: #222;
   margin: 0;
   height: 100vh;
-}
-.navbar {
-  background-color: #3972FF;
-  color: #FFF;
-  height: 50px;
-  width: 100vw;
-  padding: 20px;
-  border-radius: 0 0 .2rem .2rem;
-  box-shadow: 0px 1px 5px 0px #111;
-}
-.navbar button{
-  color: #EAEAEA;
-  font-size: 16px;
-  font-weight: bolder;
-
-  position: relative;
-  border-radius: .1rem;
-  border-style: none;
-  background-color: #2255FF;
-
-  padding: 10px;
-  left: 88vw;
-  top: -80px;
-  box-shadow: 0px 1px 1px 0px #4982FF;
-  transition: .2s;
-}
-.navbar button:hover{
-  background-color: #4982FF;
-  box-shadow: 0px 1px 1px 0px #2255FF;
-}
-.navbar h1{
-  cursor: pointer;
-  width: 150px;
-  color: #EAEAEA;
-  position: relative;
-  top: -20px;
-  left: 1vw;
 }

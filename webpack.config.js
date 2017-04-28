@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Block Ed!',
+      title: 'PodcastDeck',
       xhtml: true,
       inject: false,
       template: require('html-webpack-template'),
@@ -54,7 +54,8 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel'
+        loader: 'babel',
+        query: {compact: false}
       },
       {
         test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
