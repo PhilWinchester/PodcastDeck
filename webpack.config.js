@@ -55,7 +55,11 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel',
-        query: {compact: false}
+        query:
+          {
+            compact: false,
+            presets: ['react','es2015']
+          }
       },
       {
         test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
