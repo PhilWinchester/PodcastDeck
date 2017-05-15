@@ -55,6 +55,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel',
+        exclude: /node_modules/,
         query:
           {
             compact: false,
