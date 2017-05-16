@@ -15,5 +15,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
 
 app.use('/', require('./routes/index'))
+app.use('/podcast', require('./routes/podcast'))
 
 app.listen(PORT, () => console.log('server here! listening on', PORT));

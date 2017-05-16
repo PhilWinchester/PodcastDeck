@@ -6,15 +6,43 @@ export default class App extends Component {
     super();
 
     this.state = {
-      test: ''
+      podcastTitle: ''
     }
+  }
+
+  fireItunesFetch() {
+    let convertedTitle = this.state.podcastTitle.replace(/\s/g, '+')
+    console.log(convertedTitle);
+    fetch(`/podcast/search`, {
+      headers: {
+        'Content-Type':'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        podcastTitle: convertedTitle
+      }),
+    })
+    .then(r => r.json())
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.log(err));
+  }
+
+  handleTitleInputChange(e) {
+    this.setState({
+      podcastTitle: e.target.value
+    })
   }
 
 
   render() {
     return (
       <div>
-        <h1>Hello</h1>
+        <input type='search' placeholder='Title' onChange={(e) => this.handleTitleInputChange(e)}></input>
+        <hr></hr>
+        <button onClick={() => this.fireItunesFetch()} >Query iTunes</button>
+
       </div>
     );
   }
