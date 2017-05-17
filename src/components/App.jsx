@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PodcastItem from './PodcastItem/PodcastItem';
 import './App.css';
 
 export default class App extends Component {
@@ -6,13 +7,14 @@ export default class App extends Component {
     super();
 
     this.state = {
-      podcastTitle: ''
+      podcastTitle: '',
+      podcasts: null
     }
   }
 
   fireItunesFetch() {
-    let convertedTitle = this.state.podcastTitle.replace(/\s/g, '+')
-    console.log(convertedTitle);
+    let convertedTitle = this.state.podcastTitle.replace(/\s/g, '+');
+    
     fetch(`/podcast/search`, {
       headers: {
         'Content-Type':'application/json'
@@ -23,8 +25,17 @@ export default class App extends Component {
       }),
     })
     .then(r => r.json())
-    .then(res => {
-      console.log(res);
+    .then(resp => {
+      const podcastArr = resp.results.map((elem, counter) => (
+          <PodcastItem
+            key={counter}
+            podcastImg={elem.artworkUrl100}
+            feedUrl={elem.feedUrl}
+          />
+      ))
+      this.setState({
+        podcasts: podcastArr
+      })
     })
     .catch(err => console.log(err));
   }
@@ -42,7 +53,8 @@ export default class App extends Component {
         <input type='search' placeholder='Title' onChange={(e) => this.handleTitleInputChange(e)}></input>
         <hr></hr>
         <button onClick={() => this.fireItunesFetch()} >Query iTunes</button>
-
+        <hr></hr>
+        {this.state.podcasts}
       </div>
     );
   }

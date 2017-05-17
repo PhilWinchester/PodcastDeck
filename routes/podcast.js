@@ -3,8 +3,8 @@ const fetch = require('node-fetch');
 const path = require('path');
 
 // This is the route that serves your '/' homepage
-podcast.post('/', (req, res) => {
-  console.log('hello there');
+podcast.get('/', (req, res) => {
+  res.json({hello : 'world'});
 });
 
 podcast.route('/search')
@@ -17,11 +17,14 @@ podcast.route('/search')
     })
       .then(r => r.json())
       .then(resp => {
-        console.log(resp);
+        console.log('First Response: ', resp.results[0].collectionName);
+        resp.results.forEach((elem, counter) => {
+          console.log(`${counter + 1}: ${elem.collectionName}`);
+        })
         res.json(resp);
         next();
       })
-      .catch(err => console.log(err));
+      .catch(err => next(err));
   })
 
 module.exports = podcast;
