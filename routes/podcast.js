@@ -1,6 +1,7 @@
 const podcast = require('express').Router();
 const fetch = require('node-fetch');
 const path = require('path');
+const FeedParser = require('../lib/feedParser');
 
 // This is the route that serves your '/' homepage
 podcast.get('/', (req, res) => {
@@ -25,6 +26,13 @@ podcast.route('/search')
         next();
       })
       .catch(err => next(err));
+  })
+
+podcast.route('/parse')
+  .post(FeedParser.parseFeed, (req,res) => {
+    console.log(res.feedContent);
+    res.json(res.feedContent)
+
   })
 
 module.exports = podcast;
