@@ -17,10 +17,10 @@ podcast.route('/search')
     })
       .then(r => r.json())
       .then(resp => {
-        console.log('First Response: ', resp.results[0].collectionName);
-        resp.results.forEach((elem, counter) => {
-          console.log(`${counter + 1}: ${elem.collectionName}`);
-        })
+        // console.log('First Response: ', resp.results[0].collectionName);
+        // resp.results.forEach((elem, counter) => {
+        //   console.log(`${counter + 1}: ${elem.collectionName}`);
+        // })
         res.json(resp);
         next();
       })

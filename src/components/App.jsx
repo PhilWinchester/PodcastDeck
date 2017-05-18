@@ -12,9 +12,15 @@ export default class App extends Component {
     }
   }
 
+  handleKeyPress(target){
+    if (target.charCode === 13) {
+      this.fireItunesFetch()
+    }
+  }
+
   fireItunesFetch() {
     let convertedTitle = this.state.podcastTitle.replace(/\s/g, '+');
-    
+
     fetch(`/podcast/search`, {
       headers: {
         'Content-Type':'application/json'
@@ -27,15 +33,19 @@ export default class App extends Component {
     .then(r => r.json())
     .then(resp => {
       const podcastArr = resp.results.map((elem, counter) => (
-          <PodcastItem
-            key={counter}
-            podcastImg={elem.artworkUrl100}
-            feedUrl={elem.feedUrl}
-          />
+        <PodcastItem
+          key={counter}
+          collectionName={elem.collectionName}
+          artistName={elem.artistName}
+          artworkUrl={elem.artworkUrl100}
+          feedUrl={elem.feedUrl}
+        />
       ))
+
       this.setState({
         podcasts: podcastArr
-      })
+      });
+
     })
     .catch(err => console.log(err));
   }
@@ -50,7 +60,10 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <input type='search' placeholder='Title' onChange={(e) => this.handleTitleInputChange(e)}></input>
+        <input type='search' placeholder='Title'
+          onChange={(e) => this.handleTitleInputChange(e)}
+          onKeyPress={(t) => this.handleKeyPress(t)}
+        ></input>
         <hr></hr>
         <button onClick={() => this.fireItunesFetch()} >Query iTunes</button>
         <hr></hr>
