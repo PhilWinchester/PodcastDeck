@@ -30,7 +30,7 @@ podcast.route('/search')
 
 podcast.route('/parse')
   .post(FeedParser.parseFeed, (req,res) => {
-    console.log(res.feedContent);
+    // console.log(res.feedContent);
     res.json(res.feedContent)
 
   })
