@@ -63,8 +63,7 @@ export default class PodcastItem extends Component {
         <h4>{this.props.collectionName}</h4>
         <h6>{this.props.artistName}</h6>
         <a href='#' onClick={() => this.launchFeed()}> {this.props.feedUrl} </a>
-        <button onClick={() => this.playMostRecent()}> Play Most Recent </button>
-        <button onClick={() => this.pausePlayback()}> Pause </button>
+        <button onClick={() => this.playMostRecent()}> Load most recent episode </button>
         <hr />
         <audio src={this.state.audioStr} autoPlay controls > </audio>
         <hr />
