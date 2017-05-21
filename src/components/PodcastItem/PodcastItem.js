@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+//keeping this so I can remember to use it for research
+import ReactAudioPlayer from 'react-audio-player';
 import './PodcastItem.css';
 
 export default class PodcastItem extends Component {
@@ -45,7 +47,7 @@ export default class PodcastItem extends Component {
         audioStr: resp.enclosures[0].url,
         audioFile: new Audio(resp.enclosures[0].url)
       })
-      this.state.audioFile.play();
+      // this.state.audioFile.play();
     })
     .catch(err => console.log(err));
   }
@@ -63,6 +65,9 @@ export default class PodcastItem extends Component {
         <a href='#' onClick={() => this.launchFeed()}> {this.props.feedUrl} </a>
         <button onClick={() => this.playMostRecent()}> Play Most Recent </button>
         <button onClick={() => this.pausePlayback()}> Pause </button>
+        <hr />
+        <audio src={this.state.audioStr} autoPlay controls > </audio>
+        <hr />
       </div>
     );
   }
