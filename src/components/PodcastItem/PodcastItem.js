@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-//keeping this so I can remember to use it for research
-import ReactAudioPlayer from 'react-audio-player';
+// NOTE keeping this so I can remember to use it for research
+//import ReactAudioPlayer from 'react-audio-player';
 import './PodcastItem.css';
 
 export default class PodcastItem extends Component {
@@ -8,27 +8,12 @@ export default class PodcastItem extends Component {
     super();
 
     this.state = {
-      audioStr: '',
-      audioFile: new Audio()
+      audioStr: ''
     }
   }
 
   launchFeed() {
-    console.log(this.props.feedUrl);
-    fetch(`/podcast/parse`, {
-      headers: {
-        'Content-Type':'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        feedUrl: this.props.feedUrl
-      }),
-    })
-    .then(r => r.json())
-    .then(resp => {
-      console.log(resp);
-    })
-    .catch(err => console.log(err));
+    console.log('loading feed');
   }
 
   playMostRecent() {
@@ -44,28 +29,25 @@ export default class PodcastItem extends Component {
     .then(r => r.json())
     .then(resp => {
       this.setState({
-        audioStr: resp.enclosures[0].url,
-        audioFile: new Audio(resp.enclosures[0].url)
+        audioStr: resp.enclosures[0].url
       })
-      // this.state.audioFile.play();
+      console.log(resp);
     })
     .catch(err => console.log(err));
-  }
-
-  pausePlayback() {
-    this.state.audioFile.pause()
   }
 
   render() {
     return (
       <div>
-        <img src={this.props.artworkUrl} onClick={() => this.launchFeed()}/>
-        <h4>{this.props.collectionName}</h4>
-        <h6>{this.props.artistName}</h6>
-        <a href='#' onClick={() => this.launchFeed()}> {this.props.feedUrl} </a>
+        <h2>{this.props.collectionName}</h2>
+        <img src={this.props.artworkUrl} onClick={() => this.playMostRecent()}/>
+        <h4> <code> {this.props.artistName}</code></h4>
+        {/* <a href='#' onClick={() => this.launchFeed()}> {this.props.feedUrl} </a> */}
         <button onClick={() => this.playMostRecent()}> Load most recent episode </button>
         <hr />
-        <audio src={this.state.audioStr} autoPlay controls > </audio>
+        <audio src={this.state.audioStr} autoPlay controls >
+          
+        </audio>
         <hr />
       </div>
     );
