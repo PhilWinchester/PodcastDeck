@@ -38,6 +38,23 @@ export default class PodcastItem extends Component {
     .catch(err => console.log(err));
   }
 
+  getEpisodes() {
+    fetch(`/podcast/load`, {
+      headers: {
+        'Content-Type':'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        feedUrl: this.props.feedUrl
+      }),
+    })
+      .then(r => r.json())
+      .then(resp => {
+        console.log(resp);
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div>
@@ -47,6 +64,7 @@ export default class PodcastItem extends Component {
         <h4> <code> {this.state.episodeDate}</code></h4>
         {/* <a href='#' onClick={() => this.launchFeed()}> {this.props.feedUrl} </a> */}
         <button onClick={() => this.playMostRecent()}> Load most recent episode </button>
+        <button onClick={() => this.getEpisodes()}> Load all episodes </button>
         <hr />
         <audio src={this.state.audioStr} autoPlay controls >
 

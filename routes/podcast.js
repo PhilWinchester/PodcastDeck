@@ -2,6 +2,7 @@ const podcast = require('express').Router();
 const fetch = require('node-fetch');
 const path = require('path');
 const FeedParser = require('../lib/feedParser');
+const xmlParser = require('../lib/xmlParser');
 
 // This is the route that serves your '/' homepage
 podcast.get('/', (req, res) => {
@@ -29,10 +30,15 @@ podcast.route('/search')
   })
 
 podcast.route('/parse')
-  .post(FeedParser.parseFeed, (req,res) => {
+  .post(FeedParser.parseFeed, (req,res,next) => {
     // console.log(res.feedContent);
     res.json(res.feedContent)
+  })
 
+podcast.route('/load')
+  .post(xmlParser.xmlRequest, xmlParser.splitItems, xmlParser.readTags, (req,res,next) => {
+    // console.log(res.episodes);
+    res.json(res.episodes)
   })
 
 module.exports = podcast;

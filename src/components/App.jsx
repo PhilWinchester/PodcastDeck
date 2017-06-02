@@ -7,7 +7,7 @@ export default class App extends Component {
     super();
 
     this.state = {
-      podcastTitle: '',
+      podcastTitle: 'the daily',
       podcasts: null
     }
   }
