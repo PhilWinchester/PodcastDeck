@@ -36,7 +36,7 @@ podcast.route('/parse')
   })
 
 podcast.route('/load')
-  .post(xmlParser.xmlRequest, xmlParser.splitItems, xmlParser.readTags, (req,res,next) => {
+  .post(xmlParser.xmlRequest, xmlParser.readHeader, xmlParser.splitEpisodes, (req,res,next) => {
     // console.log(res.episodes);
     res.json(res.episodes)
   })
