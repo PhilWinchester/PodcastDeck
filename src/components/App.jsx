@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import PodcastItem from './PodcastItem/PodcastItem';
 import './App.css';
 
@@ -71,5 +72,4 @@ export default class App extends Component {
       </div>
     );
   }
-
 }

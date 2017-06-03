@@ -1,6 +1,9 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 import App      from './components/App.jsx';
+import Login    from './components/Login/Login';
+import Profile  from './components/Profile/Profile';
+import Host     from './components/Host/Host';
 
 //React Router imports
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
