@@ -1,12 +1,16 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
-import App      from './components/App.jsx';
-import Login    from './components/Login/Login';
-import Profile  from './components/Profile/Profile';
-import Host     from './components/Host/Host';
-
-//React Router imports
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+//React Imports
+import React        from 'react';
+import ReactDOM     from 'react-dom';
+import {
+  Switch,
+  Route,
+  BrowserRouter as Router}
+                    from 'react-router-dom';
+//Component Imports
+import App          from './components/App.jsx';
+import Login        from './components/Login/Login';
+import Profile      from './components/Profile/Profile';
+import Host         from './components/Host/Host';
 
 // mount our App at #root-container
 // ReactDOM.render(
@@ -14,11 +18,11 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 //   document.querySelector('#root-container')
 // );
 ReactDOM.render((
-    <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Login}/>
-        <Route path="/user" component={Profile} />
-        <Route path="/host" component={Host} />
-      </Route>
+    <Router >
+      <Switch >
+        <Route exact path='/' component={App}/>
+        <Route path='/user' component={Profile}/>
+        <Route path='/host' component={Host}/>
+      </Switch>
     </Router>
-  ), document.querySelector('#root-container'));
+  ), document.getElementById('root-container'));
