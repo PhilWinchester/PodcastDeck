@@ -23,7 +23,9 @@ export default class App extends Component {
   render() {
     return (
         <div>
-          <Sidebar />
+          <div className='sidebar'>
+            <h1>Sidebar Component</h1>
+          </div>
           <MainRouter />
 
           {/* {this.props.children && React.cloneElement(this.props.children, {

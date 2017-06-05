@@ -1,0 +1,10 @@
+.sidebar {
+  background-color: firebrick;
+  display: inline-block;
+  width: 200px;
+  height: 100vh;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}

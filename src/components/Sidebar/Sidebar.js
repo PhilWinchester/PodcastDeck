@@ -4,7 +4,7 @@ import './Sidebar.css';
 export default class Sidebar extends Component {
   render() {
     return (
-      <div>
+      <div className='sidebar'>
         <h1>Sidebar Component</h1>
       </div>
     );

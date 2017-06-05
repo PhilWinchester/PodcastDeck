@@ -1,3 +1,5 @@
+//https://reacttraining.com/react-router/web/api/BrowserRouter
+//https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
 import React, { Component }    from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import Home                    from '../Home/Home';
@@ -9,7 +11,6 @@ export default class MainRouter extends Component {
   render() {
     return (
       <div>
-        <h1>MainRouter Component</h1>
         <nav>
           <ul>
             <li><Link to='/'>Home</Link></li>

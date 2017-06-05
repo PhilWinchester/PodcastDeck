@@ -1,6 +1,17 @@
 body {
   background-color: #FAFAFA;
   color: #222;
-  margin: 0;
+  margin: 0 auto;
+  padding: 0;
   height: 100vh;
+}
+.sidebar {
+  background-color: firebrick;
+  float: left;
+  width: 200px;
+  height: 100vh;
+}
+h1 {
+  margin: 0;
+  padding: 0;
 }
