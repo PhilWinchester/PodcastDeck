@@ -1,6 +1,11 @@
 import React, { Component }      from 'react';
-import Sidebar                   from './Sidebar/Sidebar';
-import MainRouter                from './MainRouter/MainRouter';
+import { Switch, Route, Link }   from 'react-router-dom';
+import Home                      from './Home/Home';
+import Profile                   from './Profile/Profile';
+import Host                      from './Host/Host';
+import SearchBar                 from './SearchBar/SearchBar';
+import Column                    from './Column/Column';
+import AudioPlayer               from './AudioPlayer/AudioPlayer';
 import './App.css';
 
 export default class App extends Component {
@@ -8,6 +13,7 @@ export default class App extends Component {
     super();
 
     this.state = {
+      audioStr: '',
       episodeQueue: [],
       user: {
         username: '',
@@ -23,16 +29,25 @@ export default class App extends Component {
   render() {
     return (
         <div>
+          <Switch>
+            <Route exact path='/' component={Home}/>
+            <Route path='/profile' component={Profile}/>
+            <Route path='/host' component={Host}/>
+          </Switch>
+
           <div className='sidebar'>
-            <h1>Sidebar Component</h1>
+            <h1>Poddeck</h1>
+            <SearchBar />
+            <hr />
+            <button>Column 1</button>
+            <hr />
+            <AudioPlayer />
           </div>
-          <MainRouter />
 
           {/* {this.props.children && React.cloneElement(this.props.children, {
             appState: this.state,
             tempFunction: this.tempFunction.bind(this)
           })} */}
-
         </div>
     );
   }

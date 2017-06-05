@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Home.css';
+import './Column.css';
 
-export default class Home extends Component {
+export default class Column extends Component {
   render() {
     return (
       <div>
-        
+        <h1>Column Component</h1>
       </div>
     );
   }

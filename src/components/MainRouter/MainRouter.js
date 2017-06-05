@@ -11,13 +11,13 @@ export default class MainRouter extends Component {
   render() {
     return (
       <div>
-        <nav>
+        {/* <nav>
           <ul>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/profile'>Profile</Link></li>
             <li><Link to='/host'>Host</Link></li>
           </ul>
-        </nav>
+        </nav> */}
         <main>
           <Switch>
             <Route exact path='/' component={Home}/>
