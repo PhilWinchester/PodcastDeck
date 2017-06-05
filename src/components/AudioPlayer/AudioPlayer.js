@@ -4,8 +4,8 @@ import './AudioPlayer.css';
 export default class AudioPlayer extends Component {
   render() {
     return (
-      <div>
-        <h1>AudioPlayer Component</h1>
+      <div className='audio-player'>
+        <audio src={this.props.audioStr} autoPlay controls > </audio>
       </div>
     );
   }
